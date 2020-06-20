@@ -1,0 +1,47 @@
+.head{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height:10%;
+    border-bottom:1px solid lightgray
+}
+h1{
+    color:0057FF;
+    font-family: 'Roboto';
+}
+#button{
+    background-color: white;
+    border: none;
+    width:100px;
+    height:100px
+}
+#profile{
+    position: absolute;
+    right:50px
+
+}
+#image1{
+    border-radius: 0px 0px 10px 10px;
+    border: 2px solid silver;
+    margin-top: -10px;
+    height:80px;
+    width:80px;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    
+    border-bottom:1px solid lightgray;
+    padding: 4px;
+}
+#optionButton{
+    background-color: white;
+    border: none;
+}
+#optionButton:hover{
+    background-color: gainsboro;
+    border: none;
+        animation: forwards;
+        font-style: italic;
+}

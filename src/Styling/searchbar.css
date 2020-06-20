@@ -1,0 +1,12 @@
+.onAppear{
+    box-shadow: 2px 2px 8px 2px gray;
+    width: 30%;
+
+}
+
+.holder{
+    width: 100%;
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
