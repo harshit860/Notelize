@@ -1,0 +1,39 @@
+.mainBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    vertical-align: super;
+}
+
+.singleNote { 
+    box-shadow: 2px 2px 12px 0px grey;
+    width: 30%;
+    padding: 10px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+#edit{
+    width: 22px;
+    height: 22px;
+    background-image: radial-gradient(circle, black 2px, transparent 2px);
+    background-size: 100% 33.33%;
+    border: none;
+    justify-content: end;
+    background-color: white;
+    margin-top:-18px;
+    margin-left: -18px;
+    border-radius: 100%;
+}
+#edit:hover{
+    width: 22px;
+    height: 22px;
+    background-image: radial-gradient(circle, black 2px, transparent 2px);
+    background-size: 100% 33.33%;
+    border: none;
+    justify-content: end;
+    background-color: lightgrey;
+    border-radius: 100%;
+}
