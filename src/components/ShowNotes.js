@@ -1,40 +1,61 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import './../Styling/shownotes.css'
-import { useState ,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import Api from './../../Api'
+import save from './../asset/check.jpg'
+import cancel from './../asset/close.jpg'
 function ShowNotes(props) {
     const [edit, editHandle] = useState(false)
-    const onEnter = () => {
-        console.log("inside item")
+    const [Notes, handleNotes] = useState([])
+
+    function Change() {
         editHandle(edit => !edit)
     }
+    useEffect(() => {
+        Api.get('https://notelize.herokuapp.com/notes')
+            .then(resp => {
+                handleNotes(resp.data)
+            })
+            .catch(err => console.log(err))
+    }, [handleNotes])
 
-    useEffect (()=>{
-        axios.get('https://notelize.herokuapp.com/')
-        .then(resp => console.log(resp))
-        .catch(err => console.log(err))
-    })
+    console.log(Notes)
+
     return (
-        <div className="mainBox">
-            {
-                props.Notes.map(element => {
-                    return <>
-                        <div  onMouseEnter={onEnter} onMouseLeave={onEnter} className="singleNote">
-                        <button id="edit">
-                        
-                        </button>
-                           <p>{element}</p> 
-                          
-                        </div>
-                        
-                        </>
+        <>
+            {edit ? (
+                <div className="addBox">
                     
+                    <div className="arrange">
+                        <div className="action">
+                            <button id="save">
+                                Save
+                                {/* <img src={save} width="50" height="50" /> */}
+                            </button>
+                            <button id="cancel" onClick={Change}><img src={cancel} width="50" height="50" /></button>
+                        </div>
+                        <input className="add" style={{textDecoration:"bold"}} placeholder={'Title'}></input>
+                        <textarea className="add" placeholder={'Body'}></textarea>
+                    </div>
+                </div>
+            ) : (
+                    <div className="addBox" onClick={Change}>
+                        <input className="addDisplay" placeholder={'Click to Remember'}></input>
+                    </div>
+                )}
 
-                })
-            }
-        </div>
+            <div className="mainBox">
+                {Notes.map(note => {
+                    return <div className="singleNote">
+                        <p>{note.title}</p>
+                        <p>{note.body}</p>
+                        {/* <p>{note.created}</p> */}
+                    </div>
+                })}
+            </div>
+        </>
     )
 }
 

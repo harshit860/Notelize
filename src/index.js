@@ -16,7 +16,7 @@ render(<div>
     <React.Fragment>
         <Provider store={ReduxStore}>
                 <Navbar />
-                <Search />
+                {/* <Search /> */}
                 <ShowNotes />
         </Provider>
     </React.Fragment> </div>, rootElement);
