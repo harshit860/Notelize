@@ -14,17 +14,12 @@ const ReduxStore = createStore(Reducerdata)
 
 const rootElement = document.getElementById('react-app');
 
-render(<div> 
+render(
+<div> 
     <React.Fragment>
         <Provider store={ReduxStore}>
                 
-                <Router>
-                <div>
-                    
-                    <Link to="/" ></Link>
-                    <Route path="/" component={Main} />
-                </div>
-                </Router>
+                <Main />
                 
         </Provider>
     </React.Fragment> </div>, rootElement);

@@ -1,15 +1,23 @@
-    import React, { Component } from 'react'
+import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 import ShowNotes from './components/ShowNotes'
-    
-    export default class Main extends Component {
-        render() {
-            return (
+import Show from './Show'
+import { Link ,Route, BrowserRouter as Router} from 'react-router-dom';
+
+
+export default class Main extends Component {
+    render() {
+        return (
+
+            <Router>
                 <div>
-                    <Navbar />
-                    <ShowNotes />
+
+                    <Link to="/" ></Link>
+                    <Route path="/" component={Show} />
                 </div>
-            )
-        }
+            </Router>
+
+
+        )
     }
-    
+}
